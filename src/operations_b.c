@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 19:33:20 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 20:15:49 by miaghabe         ###   ########.fr       */
+/*   Created: 2025/04/22 22:11:28 by miaghabe          #+#    #+#             */
+/*   Updated: 2025/04/22 22:48:11 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sa(t_stack **a)
-{
-	int	tmp;
-
-	if (!a || !(*a) || (*a)->next == NULL)
-		return ;
-	tmp = (*a)->number;
-	(*a)->number = (*a)->next->number;
-	(*a)->next->number = tmp;
-}
 
 void	sb(t_stack **b)
 {
@@ -32,4 +21,40 @@ void	sb(t_stack **b)
 	tmp = (*b)->number;
 	(*b)->number = (*b)->next->number;
 	(*b)->next->number = tmp;
+}
+
+void	pb(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	if ((*a))
+	{
+		tmp = *a;
+		*a = (*a)->next;
+		tmp->next = NULL;
+		if ((*b))
+			*b = tmp;
+		else
+		{
+			tmp->next = *b;
+			*b = tmp;
+		}
+	}
+}
+
+void	rb(t_stack **b)
+{
+	t_stack	*tmp;
+	t_stack	*var;
+
+	if ((*b)->next)
+	{
+		var = *b;
+		tmp = *b;
+		while (tmp->next)
+			tmp = tmp->next;
+		(*b) = (*b)->next;
+		var->next = NULL;
+		tmp->next = NULL;
+	}
 }

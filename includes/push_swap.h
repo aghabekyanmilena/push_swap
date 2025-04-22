@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 19:53:27 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 22:27:38 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		check_empty(char *argument);
 int		is_number(char *argument);
 int		valid_arguments(t_stack **stack, char *arg, char *args[]);
 // operations
-void	sa(t_stack *a);
+void	sa(t_stack **a);
 
 
 
