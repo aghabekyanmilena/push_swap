@@ -6,19 +6,30 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:33:20 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 19:53:05 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 20:15:49 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack **a)
 {
-	int tmp;
+	int	tmp;
 
-	if (!a || a->next == NULL)
+	if (!a || !(*a) || (*a)->next == NULL)
 		return ;
-	tmp = a->number;
-	a->number = a->next->number;
-	a->next->number = tmp;
+	tmp = (*a)->number;
+	(*a)->number = (*a)->next->number;
+	(*a)->next->number = tmp;
+}
+
+void	sb(t_stack **b)
+{
+	int	tmp;
+
+	if (!b || !(*b) || (*b)->next == NULL)
+		return ;
+	tmp = (*b)->number;
+	(*b)->number = (*b)->next->number;
+	(*b)->next->number = tmp;
 }
