@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 15:22:54 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 19:53:27 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,23 @@ typedef struct s_stack
 	struct s_stack	*next;
 } t_stack;
 
-
 // helper functions
 void	print_error(void);
 void	free_split(char **split);
+int		ft_atolli(char *arg);
 // initalization
 void	init_args(char **argv, int argc, t_stack **stack);
+void	push_back(t_stack **stack, int number);
 // validation functions
 int		check_doubles(t_stack *stack, int number);
 int		check_empty(char *argument);
 int		is_number(char *argument);
-int		ft_atolli(char *arg);
-void	push_back(t_stack **stack, int number);
 int		valid_arguments(t_stack **stack, char *arg, char *args[]);
+// operations
+void	sa(t_stack *a);
+
+
+
+
 
 #endif

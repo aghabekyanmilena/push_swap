@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 15:12:21 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 19:11:06 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	get_indexes(t_stack *stack)
 		stack = stack->next;
 	}
 }
-
 
 void	init_args(char **argv, int argc, t_stack **stack)
 {

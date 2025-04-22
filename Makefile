@@ -3,10 +3,10 @@ SRC_DIR = src
 INC_DIR = includes
 LIBFT_DIR = libft
 
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/functions.c
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/functions.c $(SRC_DIR)/operations.c
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address
 
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 RM = rm -f
