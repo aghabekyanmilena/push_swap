@@ -1,10 +1,9 @@
-NAME = fractol
+NAME = push_swap
 SRC_DIR = src
 INC_DIR = includes
 LIBFT_DIR = libft
 
-SRC = $(SRC_DIR)
-OBJ = $(SRC:.c=.o)
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/functions.c
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address 
@@ -14,17 +13,13 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT_LIB) 
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) -o $(NAME)
+$(NAME): $(SRC) $(LIBFT_LIB) 
+	$(CC) $(CFLAGS) $(SRC) $(LIBFT_LIB) -o $(NAME)
 
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c $(INC_DIR)/push_swap.h Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	$(RM) $(OBJ)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean

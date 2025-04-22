@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/21 17:55:52 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 14:46:35 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	print_error(void)
 	exit(1);
 }
 
-int	ft_atolli(t_stack **stack, char *arg, int argc, char *args[])
+int	ft_atolli(char *arg)
 {
 	long long int	res;
 	int				sign;
@@ -52,6 +52,6 @@ int	ft_atolli(t_stack **stack, char *arg, int argc, char *args[])
 		arg++;
 	}
 	if ((res * sign) > INT_MAX || (res * sign) < INT_MIN)
-		ft_error(stack, argc, args); // print_error
+		print_error();
 	return ((int)(res * sign));
 }

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/21 17:05:07 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:12:21 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,34 @@ void	init_args(char **argv, int argc, t_stack **stack)
 	}
 	while (arguments[i])
 	{
-		if (!valid_arguments(arguments[i]))
+		if (!valid_arguments(stack, arguments[i], argv))
 			print_error();
-		push_back();
+		push_back(stack, ft_atoi(arguments[i]));
 		i++;
 	}
-	give_indexes();
+	get_indexes(*stack);
 	if (argc == 2)
 		free_split(arguments);
+}
+
+void	push_back(t_stack **stack, int number)
+{
+	t_stack	*new;
+	t_stack	*temp;
+
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		print_error();
+	new->number = number;
+	new->next = NULL;
+
+	if (!*stack)
+		*stack = new;
+	else
+	{
+		temp = *stack;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new;
+	}
 }
