@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:50:18 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 18:59:22 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 21:24:08 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,27 @@ void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		printf("Number: %d\n", stack->number);
+		printf("%d -> ", stack->number);
 		stack = stack->next;
 	}
+	printf ("NULL");
+	printf ("\n");
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	// t_stack	*b;
+	t_stack	*b;
 
 	a = NULL;
-	// b = NULL;
+	b = NULL;
 	if (argc == 1)
 		return (0);
 	init_args(argv, &a);
+	print_stack(a);
 	if (is_sorted(a))
 		return (0);
-	sort_3(&a);
+	sort_5(&a, &b);
 	print_stack(a);
+	// print_stack(b);
 }

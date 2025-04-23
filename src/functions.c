@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 18:53:22 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:27:33 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ void	free_split(char **split)
 	while (split[i])
 		free(split[i++]);
 	free(split);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack *tmp;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
 
 void	print_error(void)

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 18:59:38 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:16:12 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ typedef struct s_stack
 void	print_error(void);
 void	free_split(char **split);
 int		ft_atolli(char *arg);
-
-// initalization
+void	free_stack(t_stack **stack);
 void	push_back(t_stack **stack, int number);
 void	print_stack(t_stack *stack);
+
 
 // validation functions
 int		check_doubles(t_stack *stack, int number);
@@ -62,5 +62,7 @@ void	rrr(t_stack **a, t_stack **b);
 
 // sorting
 void	sort_3(t_stack **a);
+void	sort_5(t_stack **a, t_stack **b);
+
 
 #endif

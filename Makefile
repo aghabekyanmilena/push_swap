@@ -7,7 +7,7 @@ SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/fun
 			$(SRC_DIR)/operations_b.c $(SRC_DIR)/sorting.c
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address -g3
 
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 RM = rm -f
