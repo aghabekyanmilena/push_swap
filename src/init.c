@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 19:11:06 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:53:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,36 @@ static void	get_indexes(t_stack *stack)
 	}
 }
 
-void	init_args(char **argv, int argc, t_stack **stack)
+int	init_args(char **argv, t_stack **a)
 {
 	int		i;
-	char	**arguments;
+	char	*argument;
+	char	**split;
 
-	i = 0;
-	if (argc == 2)
-		arguments = ft_split(argv[1], ' ');
-	else
+	i = 1;
+	argument = ft_strdup("");
+	while (argv[i])
 	{
-		arguments = argv;
-		i = 1;
-	}
-	while (arguments[i])
-	{
-		if (!valid_arguments(stack, arguments[i], argv))
-			print_error();
-		push_back(stack, ft_atoi(arguments[i]));
+		if (!check_empty(argv[i]))
+			return (print_error(), 0);
+		argument = ft_strjoin(argument, argv[i]);
+		argument = ft_strjoin(argument, " ");
 		i++;
 	}
-	get_indexes(*stack);
-	if (argc == 2)
-		free_split(arguments);
+	split = ft_split(argument, ' ');
+	i = 0;
+	free(argument);
+	while (split[i])
+	{
+		if (!is_number(split[i]))
+			return (free_split(split), print_error(), 0);
+		if (!check_doubles(*a, ft_atoi(split[i])))
+			return (free_split(split), print_error(), 0);
+		push_back(a, ft_atoi(split[i]));
+		i++;
+	}
+	get_indexes(*a);
+	return (free_split(split), 1);
 }
 
 void	push_back(t_stack **stack, int number)
@@ -69,7 +76,6 @@ void	push_back(t_stack **stack, int number)
 		print_error();
 	new->number = number;
 	new->next = NULL;
-
 	if (!*stack)
 		*stack = new;
 	else

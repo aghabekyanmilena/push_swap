@@ -3,7 +3,8 @@ SRC_DIR = src
 INC_DIR = includes
 LIBFT_DIR = libft
 
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/functions.c $(SRC_DIR)/operations.c
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/validation.c $(SRC_DIR)/init.c $(SRC_DIR)/functions.c $(SRC_DIR)/operations_a.c \
+			$(SRC_DIR)/operations_b.c $(SRC_DIR)/sorting.c
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(LIBFT_DIR) # -fsanitize=address

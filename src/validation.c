@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:04:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 19:01:25 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:53:25 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,5 @@ int	is_number(char *argument)
 			return (0);
 		i++;
 	}
-	return (1);
-}
-
-int	valid_arguments(t_stack **stack, char *arg, char *args[])
-{
-	(void)args;
-	if (!check_empty(arg))
-		return (0);
-	if (!is_number(arg))
-		return (0);
-	// check int limits
-	if (!check_doubles(*stack, ft_atoi(arg)))
-		return (0);
 	return (1);
 }

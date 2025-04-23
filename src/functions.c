@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 14:46:35 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:53:22 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@ int	ft_atolli(char *arg)
 	if ((res * sign) > INT_MAX || (res * sign) < INT_MIN)
 		print_error();
 	return ((int)(res * sign));
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	rra(a);
+	rrb(b);
+	ft_putendl_fd("rrr", 1);
 }

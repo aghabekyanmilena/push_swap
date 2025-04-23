@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:33:20 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/22 22:47:08 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:44:26 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sa(t_stack **a)
 	tmp = (*a)->number;
 	(*a)->number = (*a)->next->number;
 	(*a)->next->number = tmp;
+	ft_putendl_fd("sa", 1);
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -40,21 +41,51 @@ void	pa(t_stack **a, t_stack **b)
 			*a = tmp;
 		}
 	}
+	ft_putendl_fd("pa", 1);
 }
 
 void	ra(t_stack **a)
 {
 	t_stack	*tmp;
-	t_stack	*var;
+	t_stack	*first;
 
-	if ((*a)->next)
+	if (!a || !*a || !(*a)->next)
+		return ;
+	first = *a;
+	*a = (*a)->next;
+	first->next = NULL;
+	tmp = *a;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = first;
+	ft_putendl_fd("ra", 1);
+}
+
+void	rra(t_stack **a)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	if (!a || !(*a) || !(*a)->next)
+		return ;
+	first = NULL;
+	last = *a;
+	while (last->next)
 	{
-		var = *a;
-		tmp = *a;
-		while (tmp->next)
-			tmp = tmp->next;
-		(*a) = (*a)->next;
-		var->next = NULL;
-		tmp->next = NULL;
+		first = last;
+		last = last->next;
 	}
+	if (last)
+		last->next = NULL;
+	first->next = NULL;
+	last->next = *a;
+	*a = last;
+	ft_putendl_fd("rra", 1);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	sa(a);
+	sb(b);
+	ft_putendl_fd("ss", 1);
 }

@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 16:00:10 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 17:19:03 by miaghabe         ###   ########.fr       */
+/*   Created: 2025/04/23 18:57:32 by miaghabe          #+#    #+#             */
+/*   Updated: 2025/04/23 18:58:46 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+void	sort_3(t_stack **a)
 {
-	t_list	*new;
+	int n1 = (*a)->number;
+	int n2 = (*a)->next->number;
+	int n3 = (*a)->next->next->number;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (n1 > n2 && n2 < n3 && n1 < n3)
+		sa(a);
+	else if (n1 > n2 && n2 > n3)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (n1 > n2 && n2 < n3 && n1 > n3)
+		ra(a);
+	else if (n1 < n2 && n2 > n3 && n1 < n3)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (n1 < n2 && n2 > n3 && n1 > n3)
+		rra(a);
 }
