@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:33:20 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 18:44:26 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/24 22:28:23 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,16 @@ void	sa(t_stack **a)
 	ft_putendl_fd("sa", 1);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)// poxel em sxal er ashxatum
 {
-	t_stack	*tmp;
+	t_stack	*temp;
 
-	if ((*b))
-	{
-		tmp = *b;
-		*b = (*b)->next;
-		tmp->next = NULL;
-		if ((*a))
-			*a = tmp;
-		else
-		{
-			tmp->next = *a;
-			*a = tmp;
-		}
-	}
+	if (*b == NULL)
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = *a;
+	*a = temp;
 	ft_putendl_fd("pa", 1);
 }
 

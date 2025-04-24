@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 22:11:28 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 18:47:00 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/24 22:27:58 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,16 @@ void	sb(t_stack **b)
 	ft_putendl_fd("sb", 1);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)// esel em poxel
 {
-	t_stack	*tmp;
+	t_stack	*temp;
 
-	if ((*a))
-	{
-		tmp = *a;
-		*a = (*a)->next;
-		tmp->next = NULL;
-		if ((*b))
-			*b = tmp;
-		else
-		{
-			tmp->next = *b;
-			*b = tmp;
-		}
-	}
+	if (*a == NULL)
+		return ;
+	temp = *a;
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
 	ft_putendl_fd("pb", 1);
 }
 

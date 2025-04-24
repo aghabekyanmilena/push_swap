@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 20:45:03 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/24 22:21:38 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	get_indexes(t_stack *stack)
 	}
 }
 
+
 int	init_args(char **argv, t_stack **a)
 {
 	int		i;
@@ -58,8 +59,6 @@ int	init_args(char **argv, t_stack **a)
 		if (!is_number(split[i]))
 			return (free_split(split), print_error(), 0);
 		if (!check_doubles(*a, ft_atoi(split[i])))
-			return (free_split(split), print_error(), 0);
-		if (!ft_strcmp(split[i], "+") || !ft_strcmp(split[i], "-"))
 			return (free_split(split), print_error(), 0);
 		push_back(a, ft_atoi(split[i]));
 		i++;

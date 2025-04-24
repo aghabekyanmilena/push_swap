@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:04:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 15:53:25 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:44:35 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,16 @@ int	is_number(char *argument)
 {
 	int	i;
 
+	if (!argument || argument[0] == '\0')
+		return (0);
 	i = 0;
+	if (argument[i] == '-' || argument[i] == '+')
+		i++;
+	if (!argument[i])
+		return (0);
 	while (argument[i])
 	{
-		if (!ft_isdigit(argument[i]) && argument[i] != ' ' && argument[i] != '-'
-			&& argument[i] != '+')
+		if (!ft_isdigit(argument[i]))
 			return (0);
 		i++;
 	}
