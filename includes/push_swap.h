@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 14:45:02 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 16:53:18 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 typedef struct s_stack
 {
+	int				tmp;
+	int				n;
 	int				number;
 	int				index;
 	struct s_stack	*next;
@@ -76,7 +78,11 @@ void	sort_2(t_stack **a);
 void	sort_3(t_stack **list);
 void	sort_4(t_stack **a, t_stack **b);
 void	sort_5(t_stack **a, t_stack **b);
-// void	butterfly_sort(t_stack **a, t_stack **b);
+
+// butterfly
+size_t	get_n(size_t lstsize);
+void	butterfly(t_stack **a, t_stack **b, int n);
+
 
 
 #endif

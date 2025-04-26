@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:50:18 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 14:52:32 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 16:55:09 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(int argc, char **argv)
 	arr_sort(arr, len);
 	init_index(&a, arr, len);
 
-	// printf("before stack a: ");
-	// print_stack(a);
+	printf("before stack a: ");
+	print_stack(a);
 	// printf("before stack b: ");
 	// print_stack(b);
 
@@ -59,11 +59,11 @@ int	main(int argc, char **argv)
 		sort_4(&a, &b);
 	else if (len == 5)
 		sort_5(&a, &b);
-	// else
-		// butterfly_sort(&a, &b);
+	else
+		butterfly(&a, &b, get_n(len));
 
-	// printf("Final stack a: ");
-	// print_stack(a);
+	printf("Final stack a: ");
+	print_stack(a);
 	// printf("Final stack b: ");
 	// print_stack(b);
 
