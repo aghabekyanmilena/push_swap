@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:22:22 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 13:23:37 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 17:50:38 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,30 @@ int	minimum(t_stack **a)
 		tmp = tmp->next;
 		index++;
 	}
-	return (min_pos);
+	if (min_pos <= size_list(a) / 2)
+		return (min_pos);
+	else 
+		return (min_pos - size_list(a));
 }
 
 void	min_pos_rev(t_stack **list, int min_pos)
 {
+	int	size;
+
+	size = size_list(list);
 	if (min_pos == 0)
 		return ;
-	while (min_pos != 0)
+	if (min_pos > 0 && min_pos <= size / 2) 
 	{
-		if (min_pos > 0)
+		while (min_pos > 0)
 		{
 			ra(list);
 			min_pos--;
 		}
-		else
+	}
+	else
+	{
+		while (min_pos < 0)
 		{
 			rra(list);
 			min_pos++;

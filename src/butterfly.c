@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:05:41 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 17:44:45 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 17:53:38 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,43 @@ size_t	get_n(size_t lstsize)
 	return ((ft_sqrt(lstsize) * 3) / 2 + ft_log2(lstsize) - 1);
 }
 
+void	move_max_to_top(t_stack **b)
+{
+	t_stack *tmp;
+	int max;
+	int pos;
+	int size;
+	int i;
+
+	tmp = *b;
+	max = tmp->index;
+	pos = 0;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->index > max)
+		{
+			max = tmp->index;
+			pos = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	size = i;
+	if (pos <= size / 2)
+	{
+		while (pos--)
+			rb(b);
+	}
+	else
+	{
+		pos = size - pos;
+		while (pos--)
+			rrb(b);
+	}
+}
+
+
 void	butterfly(t_stack **a, t_stack **b, int n)
 {
 	t_stack	*tmp;
@@ -85,5 +122,9 @@ void	butterfly(t_stack **a, t_stack **b, int n)
 		else
 			ra(a);
 	}
-	
+	while (*b)
+	{
+		move_max_to_top(b);
+		pa(a, b);
+	}
 }
