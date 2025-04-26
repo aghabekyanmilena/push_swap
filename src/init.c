@@ -6,33 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 14:45:10 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:35:55 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	get_indexes(t_stack *stack)
-{
-	int		index;
-	t_stack	*cur;
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (stack)
-	{
-		cur = tmp;
-		index = 0;
-		while (cur)
-		{
-			if (stack->number > cur->number)
-				index++;
-			cur = cur->next;
-		}
-		stack->index = index;
-		stack = stack->next;
-	}
-}
 
 static char	*join_args(char **argv)
 {
@@ -79,7 +57,6 @@ int	init_args(char **argv, t_stack **a)
 		push_back(a, ft_atoi(split[i]));
 		i++;
 	}
-	get_indexes(*a);
 	return (free_split(split), 1);
 }
 

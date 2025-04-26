@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 22:19:02 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 16:54:23 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:37:27 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ void	print_index(t_stack **stack)
 	}
 	printf ("\n");
 }
-// printeri hamar arandin file

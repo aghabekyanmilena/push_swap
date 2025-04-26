@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:28:23 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 15:01:39 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:36:51 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ int	small_value(t_stack **a)
 			tmp = tmp->next;
 		}
 	}
-	// printf ("small value %d\n", start->number);
 	return (start->number);
 }

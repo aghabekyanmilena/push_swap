@@ -6,13 +6,13 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:57:32 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 14:10:21 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:36:14 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_2(t_stack **a) // sort 2 petqa qnarkel
+void	sort_2(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -23,7 +23,6 @@ void	sort_2(t_stack **a) // sort 2 petqa qnarkel
 		sa(a);
 }
 
-// sort 3y ashxatum er bayc bolor casery cher vor ashxatum er
 void	sort_3(t_stack **list)
 {
 	int	a;
@@ -51,7 +50,6 @@ void	sort_3(t_stack **list)
 	}
 }
 
-// sort 4i depqy petqa qnarkel te che seg er qcum
 void	sort_4(t_stack **a, t_stack **b)
 {
 	int		min_pos;
@@ -84,46 +82,3 @@ void	sort_5(t_stack **a, t_stack **b)
 	pa(a, b);
 	pa(a, b);
 }
-
-// static int	get_max_bits(t_stack *stack)
-// {
-// 	int		max_index = 0;
-// 	int		max_bits = 0;
-
-// 	while (stack)
-// 	{
-// 		if (stack->index > max_index)
-// 			max_index = stack->index;
-// 		stack = stack->next;
-// 	}
-// 	while ((max_index >> max_bits) != 0)
-// 		max_bits++;
-// 	return (max_bits);
-// }
-
-// void	butterfly_sort(t_stack **a, t_stack **b)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		size;
-// 	int		max_bits;
-
-// 	size = size_list(a);
-// 	max_bits = get_max_bits(*a);
-// 	i = 0;
-// 	while (i < max_bits)
-// 	{
-// 		j = 0;
-// 		while (j < size)
-// 		{
-// 			if (((*a)->index >> i) & 1)
-// 				ra(a);
-// 			else
-// 				pb(a, b);
-// 			j++;
-// 		}
-// 		while (*b)
-// 			pa(a, b);
-// 		i++;
-// 	}
-// }
