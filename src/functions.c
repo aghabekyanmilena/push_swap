@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/23 19:27:33 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:45:20 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	free_split(char **split)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
+
 	while (*stack)
 	{
 		tmp = (*stack)->next;
@@ -35,13 +36,15 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-void	print_error(void)
+void	print_error(t_stack **stack)
 {
+	if (stack)
+		free_stack(stack);
 	write (2, "Error\n", 6);
 	exit(1);
 }
 
-int	ft_atolli(char *arg)
+bool	ft_atolli(char *arg)
 {
 	long long int	res;
 	int				sign;
@@ -63,8 +66,8 @@ int	ft_atolli(char *arg)
 		arg++;
 	}
 	if ((res * sign) > INT_MAX || (res * sign) < INT_MIN)
-		print_error();
-	return ((int)(res * sign));
+		return (false);
+	return (true);
 }
 
 void	rrr(t_stack **a, t_stack **b)

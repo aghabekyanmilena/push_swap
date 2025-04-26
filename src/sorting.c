@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:57:32 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/24 22:43:30 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:10:21 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,38 +85,45 @@ void	sort_5(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-int	size_list(t_stack **a)
-{
-	t_stack	*tmp;
-	int		count;
+// static int	get_max_bits(t_stack *stack)
+// {
+// 	int		max_index = 0;
+// 	int		max_bits = 0;
 
-	count = 0;
-	tmp = *a;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		count++;
-	}
-	return (count);
-}
+// 	while (stack)
+// 	{
+// 		if (stack->index > max_index)
+// 			max_index = stack->index;
+// 		stack = stack->next;
+// 	}
+// 	while ((max_index >> max_bits) != 0)
+// 		max_bits++;
+// 	return (max_bits);
+// }
 
-int small_value(t_stack **a)
-{
-	t_stack *tmp;
-	t_stack *start;
+// void	butterfly_sort(t_stack **a, t_stack **b)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		size;
+// 	int		max_bits;
 
-	start = *a;
-	tmp = (*a)->next;
-	while (start != NULL && tmp != NULL)
-	{
-		if (start->number < tmp->number)
-			tmp = tmp->next;
-		else
-		{
-			start = tmp;
-			tmp = tmp->next;
-		}
-	}
-	printf("small value %d\n",start->number);
-	return (start->number);
-}
+// 	size = size_list(a);
+// 	max_bits = get_max_bits(*a);
+// 	i = 0;
+// 	while (i < max_bits)
+// 	{
+// 		j = 0;
+// 		while (j < size)
+// 		{
+// 			if (((*a)->index >> i) & 1)
+// 				ra(a);
+// 			else
+// 				pb(a, b);
+// 			j++;
+// 		}
+// 		while (*b)
+// 			pa(a, b);
+// 		i++;
+// 	}
+// }

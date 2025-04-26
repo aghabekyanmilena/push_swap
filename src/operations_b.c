@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 22:11:28 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/24 22:27:58 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:26:59 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	rrb(t_stack **b)
 	{
 		first = last;
 		last = last->next;
-	}	
+	}
 	if (last)
 		last->next = NULL;
 	first -> next = NULL;

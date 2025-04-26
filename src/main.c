@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:50:18 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/24 22:35:01 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:52:32 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -37,7 +38,7 @@ int	main(int argc, char **argv)
 	init_args(argv, &a);
 	if (is_sorted(a))
 	{
-		printf("Stack is sorted\n");
+		free_stack(&a);
 		return (0);
 	}
 	len = size_list(&a);
@@ -45,10 +46,10 @@ int	main(int argc, char **argv)
 	arr_sort(arr, len);
 	init_index(&a, arr, len);
 
-	printf("before stack a: ");
-	print_stack(a);
-	printf("before stack b: ");
-	print_stack(b);
+	// printf("before stack a: ");
+	// print_stack(a);
+	// printf("before stack b: ");
+	// print_stack(b);
 
 	if (len == 2)
 		sort_2(&a);
@@ -58,13 +59,13 @@ int	main(int argc, char **argv)
 		sort_4(&a, &b);
 	else if (len == 5)
 		sort_5(&a, &b);
-	//	else
-		//	butterfly function arden
+	// else
+		// butterfly_sort(&a, &b);
 
-	printf("Final stack a: ");
-	print_stack(a);
-	printf("Final stack b: ");
-	print_stack(b);
+	// printf("Final stack a: ");
+	// print_stack(a);
+	// printf("Final stack b: ");
+	// print_stack(b);
 
 	free_stack(&a);
 	free_stack(&b);

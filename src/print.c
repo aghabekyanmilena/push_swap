@@ -6,24 +6,24 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 22:19:02 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/24 22:37:00 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:52:45 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
-{
-	t_stack	*tmp;
+// void	print_stack(t_stack *stack)
+// {
+// 	t_stack	*tmp;
 
-	tmp = stack;
-	while (tmp != NULL)
-	{
-		printf("%d -> ", tmp->number);
-		tmp = tmp->next;
-	}
-	printf ("NULL\n");
-}
+// 	tmp = stack;
+// 	while (tmp != NULL)
+// 	{
+// 		printf("%d -> ", tmp->number);
+// 		tmp = tmp->next;
+// 	}
+// 	printf ("NULL\n");
+// }
 
 void	print_arr(int *arr, int size)
 {
