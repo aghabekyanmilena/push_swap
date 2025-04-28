@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 20:35:55 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:45:13 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	init_args(char **argv, t_stack **a)
 			return (free_split(split), print_error(a), 0);
 		if (!check_doubles(*a, ft_atoi(split[i])))
 			return (free_split(split), print_error(a), 0);
-		if (!ft_atolli(split[i]))
+		if (!ft_atolli(split[i], a))
 			return (free_split(split), print_error(a), 0);
 		push_back(a, ft_atoi(split[i]));
 		i++;

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/25 14:45:20 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:47:12 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_error(t_stack **stack)
 	exit(1);
 }
 
-bool	ft_atolli(char *arg)
+bool	ft_atolli(char *arg, t_stack **a)
 {
 	long long int	res;
 	int				sign;
@@ -60,6 +60,10 @@ bool	ft_atolli(char *arg)
 	}
 	else if (*arg == '+')
 		arg++;
+	while (*arg && *arg == '0')
+		arg++;
+	if (ft_strlen(arg) > 11)
+		print_error(a);
 	while (*arg && (*arg >= '0' && *arg <= '9'))
 	{
 		res = res * 10 + (*arg - '0');
@@ -70,9 +74,10 @@ bool	ft_atolli(char *arg)
 	return (true);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int i)
 {
-	rra(a);
-	rrb(b);
-	ft_putendl_fd("rrr", 1);
+	rra(a, i);
+	rrb(b, i);
+	if (i)
+		ft_putstr_fd("rrr\n", 1);
 }

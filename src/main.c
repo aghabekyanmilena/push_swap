@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:50:18 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 20:36:27 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:49:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void	sorting(t_stack *a, t_stack *b)
+void	sorting(t_stack *a, t_stack *b, int i)
 {
 	int	len;
 	int	*arr;
@@ -34,15 +34,15 @@ void	sorting(t_stack *a, t_stack *b)
 	init_index(&a, arr, len);
 	free(arr);
 	if (len == 2)
-		sort_2(&a);
+		sort_2(&a, i);
 	else if (len == 3)
-		sort_3(&a);
+		sort_3(&a, i);
 	else if (len == 4)
-		sort_4(&a, &b);
+		sort_4(&a, &b, i);
 	else if (len == 5)
-		sort_5(&a, &b);
+		sort_5(&a, &b, i);
 	else
-		butterfly(&a, &b, get_n(len));
+		butterfly(&a, &b, get_n(len), i);
 }
 
 int	main(int argc, char **argv)
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
-	sorting(a, b);
+	sorting(a, b, 1);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

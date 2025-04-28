@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:05:41 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 20:19:59 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:48:53 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static size_t	ft_log2(size_t n)
 	if (n == 0)
 		return (0);
 	log = 0;
-	while (n)
+	while (n > 1)
 	{
-		n >>= 1;
+		n /= 2;
 		log++;
 	}
 	return (log);
@@ -64,11 +64,11 @@ size_t	get_n(size_t lstsize)
 
 void	move_max_to_top(t_stack **b)
 {
-	t_stack *tmp;
-	int max;
-	int pos;
-	int size;
-	int i;
+	t_stack	*tmp;
+	int		max;
+	int		pos;
+	int		size;
+	int		i;
 
 	tmp = *b;
 	max = tmp->index;
@@ -89,7 +89,7 @@ void	move_max_to_top(t_stack **b)
 	{
 		while (pos > 0)
 		{
-			rb(b);
+			rb(b, i);
 			pos--;
 		}
 	}
@@ -98,14 +98,13 @@ void	move_max_to_top(t_stack **b)
 		pos = size - pos;
 		while (pos > 0)
 		{
-			rrb(b);
+			rrb(b, i);
 			pos--;
 		}
 	}
 }
 
-
-void	butterfly(t_stack **a, t_stack **b, int n)
+void	butterfly(t_stack **a, t_stack **b, int n, int i)
 {
 	int		counter;
 
@@ -114,21 +113,21 @@ void	butterfly(t_stack **a, t_stack **b, int n)
 	{
 		if ((*a)->index <= counter)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, i);
+			rb(b, i);
 			counter++;
 		}
 		else if ((*a)->index <= counter + n)
 		{
-			pb(a, b);
+			pb(a, b, i);
 			counter++;
 		}
 		else
-			ra(a);
+			ra(a, i);
 	}
 	while (*b)
 	{
 		move_max_to_top(b);
-		pa(a, b);
+		pa(a, b, i);
 	}
 }

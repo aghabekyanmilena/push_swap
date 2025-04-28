@@ -6,13 +6,13 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:33:20 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 20:37:03 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:46:38 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int i)
 {
 	int	tmp;
 
@@ -21,10 +21,11 @@ void	sa(t_stack **a)
 	tmp = (*a)->number;
 	(*a)->number = (*a)->next->number;
 	(*a)->next->number = tmp;
-	ft_putendl_fd("sa", 1);
+	if (i)
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*temp;
 
@@ -34,10 +35,11 @@ void	pa(t_stack **a, t_stack **b)
 	*b = (*b)->next;
 	temp->next = *a;
 	*a = temp;
-	ft_putendl_fd("pa", 1);
+	if (i)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int i)
 {
 	t_stack	*tmp;
 	t_stack	*first;
@@ -51,10 +53,11 @@ void	ra(t_stack **a)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = first;
-	ft_putendl_fd("ra", 1);
+	if (i)
+		ft_putstr_fd("ra\n", 1);
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -73,12 +76,14 @@ void	rra(t_stack **a)
 	first->next = NULL;
 	last->next = *a;
 	*a = last;
-	ft_putendl_fd("rra", 1);
+	if (i)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int i)
 {
-	sa(a);
-	sb(b);
-	ft_putendl_fd("ss", 1);
+	sa(a, i);
+	sb(b, i);
+	if (i)
+		ft_putstr_fd("ss\n", 1);
 }

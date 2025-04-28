@@ -6,13 +6,13 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 22:11:28 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/26 20:37:17 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:48:09 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int i)
 {
 	int	tmp;
 
@@ -21,10 +21,11 @@ void	sb(t_stack **b)
 	tmp = (*b)->number;
 	(*b)->number = (*b)->next->number;
 	(*b)->next->number = tmp;
-	ft_putendl_fd("sb", 1);
+	if (i)
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*temp;
 
@@ -34,10 +35,11 @@ void	pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	temp->next = *b;
 	*b = temp;
-	ft_putendl_fd("pb", 1);
+	if (i)
+		ft_putstr_fd("pb\n", 1);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int i)
 {
 	t_stack	*tmp;
 	t_stack	*first;
@@ -51,10 +53,11 @@ void	rb(t_stack **b)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = first;
-	ft_putendl_fd("rb", 1);
+	if (i)
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -73,12 +76,14 @@ void	rrb(t_stack **b)
 	first -> next = NULL;
 	last->next = *b;
 	*b = last;
-	ft_putendl_fd("rrb", 1);
+	if (i)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int i)
 {
-	ra(a);
-	rb(b);
-	ft_putendl_fd("rr", 1);
+	ra(a, i);
+	rb(b, i);
+	if (i)
+		ft_putstr_fd("rr\n", 1);
 }
