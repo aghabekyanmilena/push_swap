@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/28 18:45:13 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 00:22:10 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static char	*join_args(char **argv)
 		tmp = ft_strjoin(argument, argv[i]);
 		free(argument);
 		argument = NULL;
+		free(argument);
 		argument = ft_strjoin(tmp, " ");
 		free(tmp);
 		i++;

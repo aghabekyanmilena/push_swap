@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/28 18:43:11 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/28 23:02:19 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 
 typedef struct s_stack
 {
-	int				tmp;
-	int				n;
 	int				number;
 	int				index;
 	struct s_stack	*next;
@@ -61,10 +59,10 @@ void	rr(t_stack **a, t_stack **b, int i);
 void	rrr(t_stack **a, t_stack **b, int i);
 
 // helper functions
-int		*list_to_arr(t_stack **stack, int size); //es em avelacrel
+int		*list_to_arr(t_stack **stack, int size);
 int		minimum(t_stack **a);
 int		size_list(t_stack **a);
-void	arr_sort(int *arr, int size);// sael
+void	arr_sort(int *arr, int size);
 void	init_index(t_stack **stack, int *arr, int size);
 void	min_pos_rev(t_stack **list, int min_pos, int i);
 
