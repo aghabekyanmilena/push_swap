@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 18:51:59 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:20:21 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 
 // helper functions
 void	free_split(char **split);
-bool	ft_atolli(char *arg, t_stack **a, int sign);
+bool	ft_atolli(char *arg, int sign);
 void	free_stack(t_stack **stack);
 void	push_back(t_stack **stack, int number);
 

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:28:23 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 18:52:22 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:20:51 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	parse_split(char **split, t_stack **a)
 			free_split(split);
 			print_error(a);
 		}
-		if (!ft_atolli(split[i], a, 1))
+		if (!ft_atolli(split[i], 1))
 		{
 			free_split(split);
 			print_error(a);
