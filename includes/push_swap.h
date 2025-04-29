@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/28 23:02:19 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:56:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 
 // helper functions
 void	free_split(char **split);
-bool	ft_atolli(char *arg, t_stack **a);
+bool	ft_atolli(char *arg, t_stack **a, int sign);
 void	free_stack(t_stack **stack);
 void	push_back(t_stack **stack, int number);
 
@@ -80,6 +80,7 @@ void	sort_5(t_stack **a, t_stack **b, int i);
 
 // butterfly
 size_t	get_n(size_t lstsize);
+void	if_else(t_stack **b, int pos, int size);
 void	butterfly(t_stack **a, t_stack **b, int n, int i);
 
 #endif

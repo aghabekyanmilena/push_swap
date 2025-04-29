@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 00:14:58 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:59:33 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_split(char **split)
 	int	i;
 
 	i = 0;
-	if (!*split)
+	if (!split)
 		return ;
 	while (split[i])
 	{
@@ -37,7 +37,6 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
-	free(stack);
 }
 
 void	print_error(t_stack **stack)
@@ -48,12 +47,10 @@ void	print_error(t_stack **stack)
 	exit(1);
 }
 
-bool	ft_atolli(char *arg, t_stack **a)
+bool	ft_atolli(char *arg, t_stack **a, int sign)
 {
 	long long int	res;
-	int				sign;
 
-	sign = 1;
 	res = 0;
 	while (*arg && (*arg == 32 || (*arg >= 9 && *arg <= 13)))
 		arg++;
