@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:23:26 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 16:42:33 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:04:00 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ char	**ft_split(const char *s, char *c)
 		else
 			++s;
 	}
-	ret[i] = 0;
+	ret[i] = NULL;
 	return (ret);
 }

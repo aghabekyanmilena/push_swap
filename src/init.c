@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 17:08:50 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:51:34 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static char	*join_args(char **argv)
 
 void	init_args(char **argv, t_stack **a)
 {
-	int		i;
 	char	*argument;
 	char	**split;
 
@@ -43,28 +42,10 @@ void	init_args(char **argv, t_stack **a)
 	if (argument == NULL)
 		print_error(a);
 	split = ft_split(argument, "\t\r\v\n\f ");
-	i = 0;
 	free(argument);
-	while (split[i])
-	{
-		if (!is_number(split[i]))
-		{
-			free_split(split);
-			print_error(a);
-		}
-		if (!check_doubles(*a, ft_atoi(split[i])))
-		{
-			free_split(split);
-			print_error(a);
-		}
-		if (!ft_atolli(split[i], a, 1))
-		{
-			free_split(split);
-			print_error(a);
-		}
-		push_back(a, ft_atoi(split[i]));
-		i++;
-	}
+	if (!split)
+		print_error(a);
+	parse_split(split, a);
 	free_split(split);
 }
 

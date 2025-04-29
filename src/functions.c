@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 16:58:01 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:08:33 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	print_error(t_stack **stack)
 bool	ft_atolli(char *arg, t_stack **a, int sign)
 {
 	long long int	res;
+	(void)a;
 
 	res = 0;
 	while (*arg && (*arg == 32 || (*arg >= 9 && *arg <= 13)))
@@ -65,7 +66,7 @@ bool	ft_atolli(char *arg, t_stack **a, int sign)
 	while (*arg && *arg == '0')
 		arg++;
 	if (ft_strlen(arg) > 11)
-		print_error(a);
+		return (false);
 	while (*arg && (*arg >= '0' && *arg <= '9'))
 	{
 		res = res * 10 + (*arg - '0');

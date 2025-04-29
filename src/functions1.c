@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:28:23 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 17:07:58 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:52:22 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,32 @@ void	if_else(t_stack **b, int pos, int size)
 			rrb(b, size);
 			pos--;
 		}
+	}
+}
+
+void	parse_split(char **split, t_stack **a)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		if (!is_number(split[i]))
+		{
+			free_split(split);
+			print_error(a);
+		}
+		if (!check_doubles(*a, ft_atoi(split[i])))
+		{
+			free_split(split);
+			print_error(a);
+		}
+		if (!ft_atolli(split[i], a, 1))
+		{
+			free_split(split);
+			print_error(a);
+		}
+		push_back(a, ft_atoi(split[i]));
+		i++;
 	}
 }
