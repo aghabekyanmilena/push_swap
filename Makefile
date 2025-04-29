@@ -27,7 +27,7 @@ bonus: $(BONUS)
 $(BONUS): $(BSRC) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) $(BSRC) $(LIBFT_LIB) -o $(BONUS)
 
-$(NAME): $(SRC) $(LIBFT_LIB) 
+$(NAME): $(SRC) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) $(SRC) $(LIBFT_LIB) -o $(NAME)
 
 $(LIBFT_LIB):

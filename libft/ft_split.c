@@ -6,23 +6,36 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:23:26 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/01/18 15:22:59 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:42:33 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_toklen(const char *s, char c)
+static int	in_str(char c, char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	if (str[i] == c)
+		return (1);
+	else
+		return (0);
+}
+
+static size_t	ft_toklen(const char *s, char *c)
 {
 	size_t	ret;
 
 	ret = 0;
 	while (*s)
 	{
-		if (*s != c)
+		if (in_str(*s, c) == 0)
 		{
 			++ret;
-			while (*s && *s != c)
+			while (*s && in_str(*s, c) == 0)
 				++s;
 		}
 		else
@@ -31,7 +44,7 @@ static size_t	ft_toklen(const char *s, char c)
 	return (ret);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(const char *s, char *c)
 {
 	char	**ret;
 	size_t	i;
@@ -45,10 +58,10 @@ char	**ft_split(const char *s, char c)
 		return (0);
 	while (*s)
 	{
-		if (*s != c)
+		if (in_str(*s, c) == 0)
 		{
 			len = 0;
-			while (*s && *s != c && ++len)
+			while (*s && (in_str(*s, c) == 0) && ++len)
 				++s;
 			ret[i++] = ft_substr(s - len, 0, len);
 		}

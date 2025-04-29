@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 17:18:17 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/28 18:44:52 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:11:12 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,14 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	line = get_next_line(0);
 	if (argc < 2)
 		return (0);
-	if (!init_args(argv, &a))
-		return (1);
-	while (line)
+	init_args(argv, &a);
+	while (1)
 	{
+		line = get_next_line(0);
+		if (line == NULL)
+			break ;
 		function(line, &a, &b);
 		free(line);
 	}

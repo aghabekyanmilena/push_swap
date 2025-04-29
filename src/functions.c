@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:46:50 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 12:59:33 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:58:01 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	while (*stack)
+	tmp = (*stack);
+	while (*stack && stack)
 	{
-		tmp = (*stack)->next;
+		tmp = tmp ->next;
 		free(*stack);
 		*stack = tmp;
 	}

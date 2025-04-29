@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:46:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 12:50:33 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:08:50 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static char	*join_args(char **argv)
 			return (free(argument), NULL);
 		tmp = ft_strjoin(argument, argv[i]);
 		free(argument);
-		argument = NULL;
-		free(argument);
 		argument = ft_strjoin(tmp, " ");
 		free(tmp);
 		i++;
@@ -35,7 +33,7 @@ static char	*join_args(char **argv)
 	return (argument);
 }
 
-int	init_args(char **argv, t_stack **a)
+void	init_args(char **argv, t_stack **a)
 {
 	int		i;
 	char	*argument;
@@ -43,22 +41,31 @@ int	init_args(char **argv, t_stack **a)
 
 	argument = join_args(argv);
 	if (argument == NULL)
-		return (print_error(a), 0);
-	split = ft_split(argument, ' ');
+		print_error(a);
+	split = ft_split(argument, "\t\r\v\n\f ");
 	i = 0;
 	free(argument);
 	while (split[i])
 	{
 		if (!is_number(split[i]))
-			return (free_split(split), print_error(a), 0);
+		{
+			free_split(split);
+			print_error(a);
+		}
 		if (!check_doubles(*a, ft_atoi(split[i])))
-			return (free_split(split), print_error(a), 0);
+		{
+			free_split(split);
+			print_error(a);
+		}
 		if (!ft_atolli(split[i], a, 1))
-			return (free_split(split), print_error(a), 0);
+		{
+			free_split(split);
+			print_error(a);
+		}
 		push_back(a, ft_atoi(split[i]));
 		i++;
 	}
-	return (free_split(split), 1);
+	free_split(split);
 }
 
 void	push_back(t_stack **stack, int number)

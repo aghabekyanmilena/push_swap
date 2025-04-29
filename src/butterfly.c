@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:05:41 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 12:56:47 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:06:47 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,6 @@ void	move_max_to_top(t_stack **b)
 	}
 	size = i;
 	if_else(b, pos, size);
-	// if (pos <= size / 2)
-	// {
-	// 	while (pos > 0)
-	// 	{
-	// 		rb(b, i);
-	// 		pos--;
-	// 	}
-	// }
-	// else
-	// {
-	// 	pos = size - pos;
-	// 	while (pos > 0)
-	// 	{
-	// 		rrb(b, i);
-	// 		pos--;
-	// 	}
-	// }
 }
 
 void	butterfly(t_stack **a, t_stack **b, int n, int i)

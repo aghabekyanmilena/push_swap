@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 12:15:24 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 12:56:17 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:09:19 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_back(t_stack **stack, int number);
 int		check_doubles(t_stack *stack, int number);
 int		check_empty(char *argument);
 int		is_number(char *argument);
-int		init_args(char **argv, t_stack **a);
+void	init_args(char **argv, t_stack **a);
 int		is_sorted(t_stack *a);
 
 // operations a

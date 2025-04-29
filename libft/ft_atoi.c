@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 00:38:07 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/01/18 23:17:12 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:48:30 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * res);
 }
-
-/*#include <string.h>
-#include <stdio.h>
-int main()
-{
-	const char *str = "		-334csasd";
-	printf("%d",ft_atoi(str));
-	printf("%d", atoi(str));
-}*/

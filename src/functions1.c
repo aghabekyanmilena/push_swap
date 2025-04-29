@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:28:23 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/29 12:58:17 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:07:58 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	small_value(t_stack **a)
 
 void	if_else(t_stack **b, int pos, int size)
 {
-
 	if (pos <= size / 2)
 	{
 		while (pos > 0)
